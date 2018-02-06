@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>message</title>
+    <link rel="stylesheet" href="../../dist/css/heanesUI.css">
+    <link rel="stylesheet" href="../../vendor/font/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<div class="message-container"></div>
+<button class="btn btn-success">显示提示</button>
+<script type="text/javascript" src="../../vendor/jquery/3.2.1/jquery.js"></script>
+<script type="text/javascript" src="../../dist/js/heanesUI.js"></script>
+<script type="application/javascript">
+    $(function () {
+        var $messageContainer = $('.message-container');
+        var paramMessageSuccess = {
+            $container: $messageContainer,
+            autoClose: false,
+            noticeType: 'global'
+        };
+        $('.btn-success').on('click', function () {
+            $.message(paramMessageSuccess);
+        });
+    });
+
+    function showAllImage($container ,startId, idCount, showLength) {
+        $container.empty();
+        var ids = [];
+        startId = startId ||8237;
+        idCount = idCount || 10;
+        showLength = showLength || 20;
+        for(var i = startId; i < startId + idCount; i++){
+            ids.push(i);
+            for(var j = 0; j < showLength; j++){
+                $container.append('<img src="http://i.hywly.com/a/1/' + i + '/' + j +'.jpg">');
+            }
+        }
+        // $('.content').html('<img src="http://i.hywly.com/a/1/8237/1.jpg">');
+    }
+    //showAllImage($('.content'));
+
+</script>
+</body>
+</html>

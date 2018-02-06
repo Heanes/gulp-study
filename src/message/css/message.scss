@@ -1,0 +1,192 @@
+@charset "UTF-8";
+/**
+ * @doc 提示信息
+ * @author Heanes
+ * @time 2015-12-01 20:12:06
+ */
+$messageSuccessColor: #3c763d;
+$messageSuccessBgColor: #dff0d8;
+$messageSuccessBorderColor: #c5e2ac;
+$messageSuccessIconBgColor: #13ce66;
+
+$messageInfoColor: #31708f;
+$messageInfoBgColor: #d9edf7;
+$messageInfoBorderColor: #bce8f1;
+$messageInfoIconBgColor: #50bfff;
+
+$messageWarnColor: #8a6d3b;
+$messageWarnBgColor: #fcf8e3;
+$messageWarnBorderColor: #faebcc;
+$messageWarnIconBgColor: #f7ba2a;
+
+$messageErrorColor: #a94442;
+$messageErrorBgColor: #f2dede;
+$messageErrorBorderColor: #ebccd1;
+$messageErrorIconBgColor: #ff4949;
+
+/************************ 局部消息样式 ************************/
+
+.message-wrap{
+  margin-bottom:10px;
+  word-break:break-all;
+  /*&:last-child{
+    margin-bottom:0
+  }*/
+}
+
+.message{
+  position:relative;
+  display:block;
+  border:1px solid;
+  text-align:initial;
+  min-width:300px;
+
+  // success 成功样式
+  /**
+   * @doc success 成功样式
+   */
+  &.message-success{
+    color:$messageSuccessColor;
+    background-color:$messageSuccessBgColor;
+    border-color:$messageSuccessBorderColor;
+    .message-content-section{
+      .message-icon-wrap{
+        background-color:$messageSuccessIconBgColor;
+      }
+    }
+  }
+
+  // info 信息样式
+  /**
+   * @doc info 信息样式
+   */
+  &.message-info{
+    color:$messageInfoColor;
+    background-color:$messageInfoBgColor;
+    border-color:$messageInfoBorderColor;
+    .message-content-section{
+      .message-icon-wrap{
+        background-color:$messageInfoIconBgColor;
+      }
+    }
+  }
+
+  // warning 警告样式
+  /**
+   * @doc warning 警告样式
+   */
+  &.message-warning{
+    color:$messageWarnColor;
+    background-color:$messageWarnBgColor;
+    border-color:$messageWarnBorderColor;
+    .message-content-section{
+      .message-icon-wrap{
+        background-color:$messageWarnIconBgColor;
+      }
+    }
+  }
+
+  // error 错误样式
+  /**
+   * @doc error 错误样式
+   */
+  &.message-error{
+    color:$messageErrorColor;
+    background-color:$messageErrorBgColor;
+    border-color:$messageErrorBorderColor;
+    .message-content-section{
+      .message-icon-wrap{
+        background-color:$messageErrorIconBgColor;
+      }
+    }
+  }
+
+  // message 内容
+  .message-content-section{
+    display:table;
+    width:100%;
+    p{
+      margin:0;
+    }
+
+    .message-icon-wrap,
+    .message-content-wrap{
+      display:table-cell;
+      vertical-align:middle;
+    }
+
+    .message-icon-wrap{
+      width:64px;
+      height:64px;
+      text-align:center;
+      padding:14px;
+      .icon-background{
+        width:30px;
+        height:30px;
+        line-height:30px;
+        border-radius:50%;
+        background-color:#fff;
+        margin:0 auto;
+      }
+    }
+
+    .message-content-wrap{
+      padding:14px 40px 14px 14px;
+      .message-title{
+        font-size:1.4em;
+        line-height:1em;
+        margin-bottom:10px;
+        & h2{
+          font-size:1em;
+          margin-bottom:0;
+          line-height:1em;
+        }
+      }
+    }
+  }
+
+  // message 操作区
+  .message-handle-section{
+    .btn-close{
+      position:absolute;
+      right:2px;
+      top:2px;
+      font-size:17px;
+      font-weight:300;
+      height:20px;
+      width:20px;
+      line-height:20px;
+      text-align:center;
+      vertical-align:middle;
+      font-family:arial, sans-serif;
+      cursor:pointer;
+      border-radius:50%;
+      &:hover{
+        background-color:#d9534f;
+        color:#fff
+      }
+    }
+  }
+}
+
+/************************ 全局顶部消息样式 ************************/
+.message-global{
+  z-index:100;
+  position:fixed;
+  top:0;
+  text-align:center;
+  width:100%;
+}
+
+.message-global .message-wrap{
+  &:first-child{
+    margin-top:20px;
+  }
+}
+
+.message-global .message{
+  display:inline-block;
+  /*padding:10px 40px 10px 20px;
+  border-bottom-left-radius:5px;
+  border-bottom-right-radius:5px;*/
+}

@@ -1,0 +1,106 @@
+@charset "UTF-8";
+/**
+ * @doc 提示信息
+ * @author Heanes
+ * @time 2015-12-01 20:12:06
+ */
+/************************ 局部消息样式 ************************/
+.message-wrap {
+  margin-bottom: 10px;
+  word-break: break-all;
+  /*&:last-child{
+    margin-bottom:0
+  }*/ }
+
+.message {
+  position: relative;
+  display: block;
+  border: 1px solid;
+  text-align: initial;
+  min-width: 300px;
+  /**
+   * @doc success 成功样式
+   */
+  /**
+   * @doc info 信息样式
+   */
+  /**
+   * @doc warning 警告样式
+   */
+  /**
+   * @doc error 错误样式
+   */ }
+  .message.message-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #c5e2ac; }
+    .message.message-success .message-content-section .message-icon-wrap {
+      background-color: #13ce66; }
+  .message.message-info {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1; }
+    .message.message-info .message-content-section .message-icon-wrap {
+      background-color: #50bfff; }
+  .message.message-warning {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc; }
+    .message.message-warning .message-content-section .message-icon-wrap {
+      background-color: #f7ba2a; }
+  .message.message-error {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1; }
+    .message.message-error .message-content-section .message-icon-wrap {
+      background-color: #ff4949; }
+  .message .message-content-section {
+    display: table;
+    width: 100%; }
+    .message .message-content-section p {
+      margin: 0; }
+    .message .message-content-section .message-icon-wrap,
+    .message .message-content-section .message-content-wrap {
+      display: table-cell;
+      vertical-align: middle; }
+    .message .message-content-section .message-icon-wrap {
+      width: 64px;
+      height: 64px;
+      text-align: center;
+      padding: 14px; }
+      .message .message-content-section .message-icon-wrap .icon-background {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 50%;
+        background-color: #fff;
+        margin: 0 auto; }
+    .message .message-content-section .message-content-wrap {
+      padding: 14px 40px 14px 14px; }
+      .message .message-content-section .message-content-wrap .message-title {
+        font-size: 1.4em;
+        line-height: 1em;
+        margin-bottom: 10px; }
+        .message .message-content-section .message-content-wrap .message-title h2 {
+          font-size: 1em;
+          margin-bottom: 0;
+          line-height: 1em; }
+  .message .message-handle-section .btn-close {
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    font-size: 17px;
+    font-weight: 300;
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    font-family: arial, sans-serif;
+    cursor: pointer;
+    border-radius: 50%; }
+    .message .message-handle-section .btn-close:hover {
+      background-color: #d9534f;
+      color: #fff; }
+
+/*# sourceMappingURL=message.css.map */

@@ -1,0 +1,7 @@
+.svn
+
+.idea
+.settings
+.project
+
+node_modules
