@@ -27,7 +27,11 @@
         "vinyl-source-stream": "^2.0.0"
     },
     "scripts": {
-        "watch": "gulp watch"
+        "gulpBuild": "gulp --gulpfile build/gulp/gulpfile.js build",
+        "gulpBuildDev": "gulp --gulpfile build/gulp/gulpfile.js buildDev",
+        "gulpBuildPord": "gulp --gulpfile build/gulp/gulpfile.js buildProd",
+        "gulpWatch": "gulp --gulpfile build/gulp/gulpfile.js watch",
+        "gulpClean": "gulp --gulpfile build/gulp/gulpfile.js clean"
     },
     "repository": {
         "type": "git",
