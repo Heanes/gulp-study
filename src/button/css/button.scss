@@ -1,3 +1,16 @@
+@charset "UTF-8";
+
+/**
+ * @doc button 按钮样式
+ * @author Heanes
+ * @time 2018-02-09 15:33:43 周五
+ */
+
+@import "../../common/variable.scss";
+
 .btn{
   border: 1px solid $buttonBorderDefaultColor;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #fff;
 }

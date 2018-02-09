@@ -4,8 +4,26 @@
  * @author Heanes
  * @time 2018-02-05 00:03:48 周一
  */
+/**
+ * @doc 公共变量存储
+ * @author Heanes
+ * @time 2018-02-06 15:29:17 周五
+ */
+/**
+ * @doc button 按钮样式
+ * @author Heanes
+ * @time 2018-02-09 15:33:43 周五
+ */
+/**
+ * @doc 公共变量存储
+ * @author Heanes
+ * @time 2018-02-06 15:29:17 周五
+ */
 .btn {
-  border: 1px solid #ddd; }
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #fff; }
 
 /**
  * @doc 提示信息
