@@ -8,7 +8,10 @@
 </head>
 <body>
 <div class="message-container"></div>
-<button class="btn btn-success">显示提示</button>
+<div class="demo">
+    <button class="btn btn-success">显示提示</button>
+</div>
+
 <script type="text/javascript" src="../../vendor/jquery/3.2.1/jquery.js"></script>
 <script type="text/javascript" src="../../dist/js/heanesUI.js"></script>
 <script type="application/javascript">
@@ -17,11 +20,16 @@
         var paramMessageSuccess = {
             $container: $messageContainer,
             autoClose: false,
-            noticeType: 'global'
+            noticeType: 'global',
+            $content: '这是相当相当长的长文本这是相当相当长的长文本这是相当相当长的长文本这是相当相当长的长文本这是相当相当长的长文本这是相当相当长的长文本这是相当相当长的长文本',
+            onClose: function ($messageWrap) {
+                console.info('U close the message window.');
+            }
         };
         $('.btn-success').on('click', function () {
             $.message(paramMessageSuccess);
         });
+
     });
 
     function showAllImage($container ,startId, idCount, showLength) {

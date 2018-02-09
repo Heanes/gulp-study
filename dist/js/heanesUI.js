@@ -27,7 +27,7 @@
             '                 <span class="btn-close">x</span>\n' +
             '             </div>\n' +
             '             <div class="message-content-section">\n' +
-            '                 <div class="message-icon-wrap">\n' +
+            '                 <div class="message-icon">\n' +
             '                     <div class="icon-background">\n' +
             '                     </div>\n' +
             '                 </div>\n' +
@@ -50,7 +50,7 @@
             autoClose:      true,           // boolean 是否自动关闭
             fadeOutDelay:   500,            // int 消失动画延迟时间，单位为毫秒
             canBeClose:     true,           // boolean 是否能被关闭
-            onClose:        undefined,      // 当消息关闭时的回调函数 todo add at 2016-12-13 14:33:02 周二
+            onClose:        undefined,      // 当消息关闭时的回调函数
             showIcon:       false,          // boolean 是否显示图标
             classPrefix:    ''              // 样式前缀，方便自定义样式
         }
@@ -79,16 +79,24 @@
         }
 
         var $messageWrap = $(this.messageConstants.template);
-
-        var messageClassPrefix = paramObject.classPrefix + '-message';
         var $message = $messageWrap.find('.message');
-        $message.addClass(messageClassPrefix);
         var $messageContentSection = $message.find('.message-content-section');
-        var $messageIconWrap = $messageContentSection.find('.message-icon-wrap');
-        var $messageIcon = $messageIconWrap.find('.icon-background');
+
+        // 样式前缀
+        if(paramObject.classPrefix){
+            var messageClassPrefix = paramObject.classPrefix + '-message';
+            $message.addClass(messageClassPrefix);
+        }
+
+        // 消息体
         var $messageContentWrap = $messageContentSection.find('.message-content-wrap');
         var $messageTitle = $messageContentWrap.find('.message-title');
+        // 消息图标
+        var $messageIconWrap = $messageContentSection.find('.message-icon');
+        var $messageIcon = $messageIconWrap.find('.icon-background');
+        // 消息标题
         $messageTitle.append(paramObject.$title);
+        // 消息正文内容
         var $messageContent = $messageContentSection.find('.message-content');
         $messageContent.append(paramObject.$content);
         switch (paramObject.type){
@@ -117,15 +125,18 @@
         if(paramObject.autoClose){
             // 超时后自动关闭
             if(paramObject.showTime !== 0){
-                $messageWrap.delay(paramObject.showTime).fadeOut(paramObject.fadeOutDelay, function(){$messageWrap.remove()});
+                $messageWrap.delay(paramObject.showTime).fadeOut(paramObject.fadeOutDelay, function(){
+                    $messageWrap.remove();
+                    $messageWrap.trigger('close');
+                });
             }
         }
         // 点击关闭
         $messageWrap.on('click', '.btn-close', function (event) {
             var $delegateTarget = $(event.delegateTarget);
             $delegateTarget.stop().fadeOut(paramObject.fadeOutDelay, function(){$messageWrap.remove()});
-            if(typeof this.onClose === 'function'){
-                this.onClose();
+            if(typeof paramObject.onClose === 'function'){
+                paramObject.onClose($messageWrap);
             }
         });
     }

@@ -38,8 +38,12 @@ $messageErrorIconBgColor: #ff4949;
   position:relative;
   display:block;
   border:1px solid;
+  box-sizing:border-box;
   text-align:initial;
   min-width:300px;
+  *{
+    box-sizing:inherit;
+  }
 
   // success 成功样式
   /**
@@ -50,7 +54,7 @@ $messageErrorIconBgColor: #ff4949;
     background-color:$messageSuccessBgColor;
     border-color:$messageSuccessBorderColor;
     .message-content-section{
-      .message-icon-wrap{
+      .message-icon{
         background-color:$messageSuccessIconBgColor;
       }
     }
@@ -65,7 +69,7 @@ $messageErrorIconBgColor: #ff4949;
     background-color:$messageInfoBgColor;
     border-color:$messageInfoBorderColor;
     .message-content-section{
-      .message-icon-wrap{
+      .message-icon{
         background-color:$messageInfoIconBgColor;
       }
     }
@@ -80,7 +84,7 @@ $messageErrorIconBgColor: #ff4949;
     background-color:$messageWarnBgColor;
     border-color:$messageWarnBorderColor;
     .message-content-section{
-      .message-icon-wrap{
+      .message-icon{
         background-color:$messageWarnIconBgColor;
       }
     }
@@ -95,7 +99,7 @@ $messageErrorIconBgColor: #ff4949;
     background-color:$messageErrorBgColor;
     border-color:$messageErrorBorderColor;
     .message-content-section{
-      .message-icon-wrap{
+      .message-icon{
         background-color:$messageErrorIconBgColor;
       }
     }
@@ -109,13 +113,13 @@ $messageErrorIconBgColor: #ff4949;
       margin:0;
     }
 
-    .message-icon-wrap,
+    .message-icon,
     .message-content-wrap{
       display:table-cell;
       vertical-align:middle;
     }
 
-    .message-icon-wrap{
+    .message-icon{
       width:64px;
       height:64px;
       text-align:center;
@@ -151,7 +155,7 @@ $messageErrorIconBgColor: #ff4949;
       position:absolute;
       right:2px;
       top:2px;
-      font-size:17px;
+      font-size:15px;
       font-weight:300;
       height:20px;
       width:20px;
@@ -161,6 +165,8 @@ $messageErrorIconBgColor: #ff4949;
       font-family:arial, sans-serif;
       cursor:pointer;
       border-radius:50%;
+      background-color:#e48784;
+      color:#fff;
       &:hover{
         background-color:#d9534f;
         color:#fff
@@ -171,22 +177,16 @@ $messageErrorIconBgColor: #ff4949;
 
 /************************ 全局顶部消息样式 ************************/
 .message-global{
-  z-index:100;
+  z-index:1000;
   position:fixed;
-  top:0;
+  top:20px;
+  left:50%;
+  transform: translateX(-50%);
   text-align:center;
-  width:100%;
-}
-
-.message-global .message-wrap{
-  &:first-child{
-    margin-top:20px;
+  .message{
+    display:inline-block;
+    /*padding:10px 40px 10px 20px;
+    border-bottom-left-radius:5px;
+    border-bottom-right-radius:5px;*/
   }
-}
-
-.message-global .message{
-  display:inline-block;
-  /*padding:10px 40px 10px 20px;
-  border-bottom-left-radius:5px;
-  border-bottom-right-radius:5px;*/
 }
